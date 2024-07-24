@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 2932.6 430.5">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #3a6a8e;
+        font-family: Montserrat-Medium, Montserrat;
+        font-weight: 500;
+      }
+
+      .cls-1, .cls-3 {
+        letter-spacing: -.1em;
+      }
+
+      .cls-2 {
+        letter-spacing: 0em;
+      }
+
+      .cls-4 {
+        letter-spacing: 0em;
+      }
+
+      .cls-4, .cls-3 {
+        fill: #059ebf;
+        font-family: Montserrat-Light, Montserrat;
+        font-weight: 300;
+      }
+
+      .cls-5 {
+        font-size: 529px;
+      }
+    </style>
+  </defs>
+  <text class="cls-5" transform="translate(-27.4 406)"><tspan class="cls-2" x="0" y="0">Ban</tspan><tspan class="cls-1" x="937.4" y="0">k </tspan><tspan class="cls-3" x="1285" y="0">S</tspan><tspan class="cls-4" x="1546.8" y="0">tream</tspan></text>
+  <text/>
+</svg>

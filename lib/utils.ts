@@ -2,6 +2,7 @@
 import { type ClassValue, clsx } from "clsx";
 import qs from "query-string";
 import { twMerge } from "tailwind-merge";
+import { z } from "zod";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -193,3 +194,57 @@ export const getTransactionStatus = (date: Date) => {
 
   return date > twoDaysAgo ? "Processing" : "Success";
 };
+
+export const authFormSchema = (type: string) =>
+  z.object({
+    // Sign up
+    firstName:
+      type === "sign-in"
+        ? z.string().optional()
+        : z
+            .string()
+            .min(1, "First name is required")
+            .max(50, "First name cannot exceed 50 characters"),
+    lastName:
+      type === "sign-in"
+        ? z.string().optional()
+        : z
+            .string()
+            .min(1, "Last name is required")
+            .max(50, "Last name cannot exceed 50 characters"),
+    address1:
+      type === "sign-in"
+        ? z.string().optional()
+        : z
+            .string()
+            .min(1, "Address is required")
+            .max(100, "Address cannot exceed 100 characters"),
+    state:
+      type === "sign-in"
+        ? z.string().optional()
+        : z
+            .string()
+            .min(2, "State is required")
+            .max(3, "State cannot exceed 3 characters"),
+    postalCode:
+      type === "sign-in"
+        ? z.string().optional()
+        : z
+            .string()
+            .min(3, "Postal code must be at least 3 characters")
+            .max(6, "Postal code cannot exceed 6 characters"),
+    dateOfBirth:
+      type === "sign-in"
+        ? z.string().optional()
+        : z.string().refine((date) => {
+            const parsedDate = new Date(date);
+            return !isNaN(parsedDate.getTime());
+          }, "Invalid date format"),
+    ssn: type === "sign-in" ? z.string().optional() : z.string().min(3),
+    city: type === "sign-in" ? z.string().optional() : z.string().min(3),
+    // .regex(/^\d{3}-\d{2}-\d{4}$/, "SSN must be in the format XXX-XX-XXXX"),
+
+    //Sign in & sign up
+    email: z.string().email(),
+    password: z.string().min(8).max(30),
+  });

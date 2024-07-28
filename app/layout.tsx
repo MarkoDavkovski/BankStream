@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description:
     "BankStream is a modern banking platform for businesses and individuals.",
   icons: {
-    icon: "/icons/bankstream_log.svg",
+    icon: "/icons/bankstream_logo.svg",
   },
 };
 

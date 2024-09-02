@@ -7,16 +7,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+import { Form } from "@/components/ui/form";
 import CustomInput from "./CustomInput";
 import { authFormSchema } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
@@ -51,6 +42,7 @@ const AuthForm = ({ type }: { type: string }) => {
           email: data.email,
           password: data.password,
         });
+        console.log(response);
         if (response) router.push("/");
       }
     } catch (error) {
@@ -65,14 +57,14 @@ const AuthForm = ({ type }: { type: string }) => {
       <header className="flex flex-col gap-5 md:gap-8">
         <Link href="/" className="cursor-pointer flex items-center gap-1 ">
           <Image
-            src="/icons/bankstream_logo.svg"
-            width={34}
+            src="/icons/bankstream_logo_full.svg"
+            width={350}
             height={34}
             alt="BankStream Logo"
           />
-          <h1 className="text-26 font-ibm-plex-serif font-bold text-black-1">
+          {/* <h1 className="text-26 font-ibm-plex-serif font-bold text-black-1">
             BankStream
-          </h1>
+          </h1> */}
         </Link>
 
         <div className="flex flex-col gap-1 md:gap-3">
@@ -116,8 +108,8 @@ const AuthForm = ({ type }: { type: string }) => {
                 />
                 <CustomInput
                   formControl={form.control}
-                  name="postalCode"
-                  label="Postal Code"
+                  name="city"
+                  label="City"
                   placeholder="Enter your city"
                 />
                 <div className="flex gap-4">
@@ -129,9 +121,9 @@ const AuthForm = ({ type }: { type: string }) => {
                   />
                   <CustomInput
                     formControl={form.control}
-                    name="city"
-                    label="City"
-                    placeholder="Example: YYYY-MM-DD"
+                    name="postalCode"
+                    label="Postal Code"
+                    placeholder="Example: 1040"
                   />
                 </div>
                 <div className="flex gap-4">
@@ -145,7 +137,7 @@ const AuthForm = ({ type }: { type: string }) => {
                     formControl={form.control}
                     name="ssn"
                     label="SSN"
-                    placeholder="Example: 1234"
+                    placeholder="Example: 223305"
                   />
                 </div>
               </>

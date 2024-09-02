@@ -42,7 +42,6 @@ const AuthForm = ({ type }: { type: string }) => {
           email: data.email,
           password: data.password,
         });
-        console.log(response);
         if (response) router.push("/");
       }
     } catch (error) {
@@ -62,9 +61,6 @@ const AuthForm = ({ type }: { type: string }) => {
             height={34}
             alt="BankStream Logo"
           />
-          {/* <h1 className="text-26 font-ibm-plex-serif font-bold text-black-1">
-            BankStream
-          </h1> */}
         </Link>
 
         <div className="flex flex-col gap-1 md:gap-3">
